@@ -22,9 +22,9 @@ function addQuickPersonaButton() {
 async function toggleQuickPersonaSelector() {
     if (isOpen) {
         closeQuickPersonaSelector();
-        return;
+    } else {
+        await openQuickPersonaSelector();
     }
-    await openQuickPersonaSelector();
 }
 
 async function openQuickPersonaSelector() {
@@ -73,6 +73,7 @@ function closeQuickPersonaSelector() {
     });
     if (popper) {
         popper.destroy();
+        popper = null;
     }
 }
 

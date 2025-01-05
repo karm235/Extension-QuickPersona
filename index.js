@@ -12,10 +12,17 @@ function addQuickPersonaButton() {
     <div id="quickPersona" class="interactable" tabindex="0">
         <img id="quickPersonaImg" src="/img/ai4.png" />
         <div id="quickPersonaCaret" class="fa-fw fa-solid fa-caret-up"></div>
+        <button id="toggleFavoriteMode" class="toggle-favorites-btn">☆</button>
     </div>`;
     $('#leftSendForm').append(quickPersonaButton);
-    $('#quickPersona').on('click', () => {
-        toggleQuickPersonaSelector();
+    $('#quickPersona').on('click', (e) => {
+        if (!e.target.closest('#toggleFavoriteMode')) {
+            toggleQuickPersonaSelector();
+        }
+    });
+    $('#toggleFavoriteMode').on('click', (e) => {
+        e.stopPropagation();
+        toggleFavoriteMode();
     });
 }
 
@@ -96,6 +103,7 @@ function toggleFavorite(persona) {
 
 function toggleFavoriteMode() {
     showFavorites = !showFavorites;
+    $('#toggleFavoriteMode').text(showFavorites ? '★' : '☆');
     refreshQuickPersonaMenu(); // Refresh the menu immediately
 }
 
@@ -116,9 +124,4 @@ jQuery(() => {
         }
     });
     changeQuickPersona();
-
-    // Add a button to toggle between all personas and favorites
-    const toggleButton = $('<button id="toggleFavoriteMode">Toggle Favorites</button>');
-    $('#leftSendForm').append(toggleButton);
-    toggleButton.on('click', toggleFavoriteMode);
 });

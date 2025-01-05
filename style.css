@@ -91,7 +91,13 @@ body.big-avatars .quickPersonaMenuImg {
     margin-left: 5px;
 }
 
-#toggleFavoriteMode {
-    margin-top: 10px;
+.toggle-favorites-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: none;
+    border: none;
+    font-size: 1.5em;
     cursor: pointer;
+    z-index: 20;
 }

@@ -15,14 +15,6 @@ function addQuickPersonaButton() {
     </div>`;
     $('#leftSendForm').append(quickPersonaButton);
     $('#quickPersona').on('click', toggleQuickPersonaSelector);
-
-    // Add the toggle button separately to avoid overlap
-    const toggleButton = $('<button id="toggleFavoriteMode" class="toggle-favorites-btn">☆</button>');
-    $('#leftSendForm').append(toggleButton);
-    toggleButton.on('click', (e) => {
-        e.stopPropagation();
-        toggleFavoriteMode();
-    });
 }
 
 async function toggleQuickPersonaSelector() {
@@ -36,7 +28,14 @@ async function toggleQuickPersonaSelector() {
 async function openQuickPersonaSelector() {
     isOpen = true;
     const userAvatars = await getUserAvatars(false);
-    const quickPersonaList = $('<div id="quickPersonaMenu"><ul class="list-group"></ul></div>');
+    const quickPersonaList = $(`
+        <div id="quickPersonaMenu">
+            <div class="quickPersonaHeader">
+                <button id="toggleFavoriteMode" class="toggle-favorites-btn">${showFavorites ? '★' : '☆'}</button>
+            </div>
+            <ul class="list-group"></ul>
+        </div>
+    `);
     const personasToShow = showFavorites ? favoritePersonas : userAvatars;
 
     for (const userAvatar of personasToShow) {
@@ -68,6 +67,12 @@ async function openQuickPersonaSelector() {
         placement: 'top-start',
     });
     popper.update();
+
+    // Attach event handler for the toggle button
+    $('#toggleFavoriteMode').on('click', (e) => {
+        e.stopPropagation();
+        toggleFavoriteMode();
+    });
 }
 
 function closeQuickPersonaSelector() {

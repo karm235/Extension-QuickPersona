@@ -50,6 +50,14 @@ body.square-avatars .quickPersonaMenuImg {
     --blockWidth: 50px;
 }
 
+.quickPersonaHeader {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid #ccc;
+}
+
 body.big-avatars #quickPersonaMenu {
     --blockWidth: 60px;
 }
@@ -92,12 +100,8 @@ body.big-avatars .quickPersonaMenuImg {
 }
 
 .toggle-favorites-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
     background: none;
     border: none;
     font-size: 1.5em;
     cursor: pointer;
-    z-index: 20;
 }

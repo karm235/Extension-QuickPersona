@@ -44,7 +44,6 @@ async function openQuickPersonaSelector() {
         listItem.find('.favorite-toggle').text(isFavorite ? '★' : '☆').on('click', (e) => {
             e.stopPropagation();
             toggleFavorite(userAvatar);
-            listItem.find('.favorite-toggle').text(isFavorite ? '☆' : '★');
             refreshQuickPersonaMenu(); // Refresh the menu immediately
         });
         listItem.on('click', () => {

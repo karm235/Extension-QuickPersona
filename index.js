@@ -44,9 +44,16 @@ async function openQuickPersonaSelector() {
         const isSelected = userAvatar === user_avatar;
         const isDefault = userAvatar === power_user.default_persona;
         const isFavorite = favoritePersonas.includes(userAvatar);
-        const listItem = $('<li tabindex="0" class="list-group-item interactable"><img class="quickPersonaMenuImg"/><span class="favorite-toggle"></span></li>');
+        const listItem = $(`
+            <li tabindex="0" class="list-group-item interactable">
+                <div class="persona-container">
+                    <img class="quickPersonaMenuImg" />
+                    <span class="favorite-toggle">${isFavorite ? '★' : '☆'}</span>
+                </div>
+            </li>
+        `);
         listItem.find('img').attr('src', imgUrl).attr('title', imgTitle).toggleClass('selected', isSelected).toggleClass('default', isDefault);
-        listItem.find('.favorite-toggle').text(isFavorite ? '★' : '☆').on('click', (e) => {
+        listItem.find('.favorite-toggle').on('click', (e) => {
             e.stopPropagation();
             toggleFavorite(userAvatar);
             refreshQuickPersonaMenu(); // Refresh the menu immediately

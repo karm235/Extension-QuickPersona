@@ -1,6 +1,7 @@
 import { animation_duration, eventSource, event_types } from '../../../../script.js';
 import { power_user } from '../../../power-user.js';
 import { retriggerFirstMessageOnEmptyChat, getUserAvatar, getUserAvatars, setUserAvatar, user_avatar } from '../../../personas.js';
+import { extension_settings } from '../../../extensions.js';
 
 let popper = null;
 let isOpen = false;

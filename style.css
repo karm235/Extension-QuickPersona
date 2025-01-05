@@ -63,8 +63,8 @@ body.big-avatars #quickPersonaMenu {
 }
 
 #quickPersonaMenu li {
-    width: 50px;
-    height: 50px;
+    width: 60px; /* Adjusted width */
+    height: 60px; /* Adjusted height */
     padding: 0;
     display: flex;
     align-items: center;
@@ -72,8 +72,8 @@ body.big-avatars #quickPersonaMenu {
 }
 
 body.big-avatars #quickPersonaMenu li {
-    width: 60px;
-    height: 90px;
+    width: 70px; /* Adjusted width */
+    height: 100px; /* Adjusted height */
 }
 
 body.big-avatars .quickPersonaMenuImg {

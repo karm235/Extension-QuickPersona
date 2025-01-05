@@ -45,6 +45,7 @@ async function openQuickPersonaSelector() {
             e.stopPropagation();
             toggleFavorite(userAvatar);
             listItem.find('.favorite-toggle').text(isFavorite ? '☆' : '★');
+            refreshQuickPersonaMenu(); // Refresh the menu immediately
         });
         listItem.on('click', () => {
             closeQuickPersonaSelector();
@@ -70,7 +71,9 @@ function closeQuickPersonaSelector() {
     $('#quickPersonaMenu').fadeOut(animation_duration, () => {
         $('#quickPersonaMenu').remove();
     });
-    popper.destroy();
+    if (popper) {
+        popper.destroy();
+    }
 }
 
 function changeQuickPersona() {
@@ -93,6 +96,10 @@ function toggleFavorite(persona) {
 
 function toggleFavoriteMode() {
     showFavorites = !showFavorites;
+    refreshQuickPersonaMenu(); // Refresh the menu immediately
+}
+
+function refreshQuickPersonaMenu() {
     if (isOpen) {
         closeQuickPersonaSelector();
         openQuickPersonaSelector();

@@ -81,3 +81,17 @@ body.big-avatars .quickPersonaMenuImg {
     max-height: 75svh;
     overflow-y: auto;
 }
+
+.favoriteToggle {
+    cursor: pointer;
+    color: var(--gray);
+}
+
+.favoriteToggle.favorited {
+    color: var(--golden);
+}
+
+#toggleFavorites {
+    margin-left: 10px;
+    cursor: pointer;
+}

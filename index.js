@@ -16,7 +16,7 @@ function addQuickPersonaButton() {
     </div>`;
     $('#leftSendForm').append(quickPersonaButton);
     $('#quickPersona').on('click', (e) => {
-        if (!e.target.closest('#toggleFavoriteMode')) {
+        if (!$(e.target).is('#toggleFavoriteMode')) {
             toggleQuickPersonaSelector();
         }
     });

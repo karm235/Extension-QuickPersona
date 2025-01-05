@@ -1,12 +1,12 @@
 {
-    "display_name": "Quick Persona",
+    "display_name": "Quick Persona - Modified",
     "loading_order": 100,
     "requires": [],
     "optional": [],
     "js": "index.js",
     "css": "style.css",
-    "author": "Cohee1207",
+    "author": "Cohee1207, karm",
     "version": "1.0.0",
-    "homePage": "https://github.com/SillyTavern/Extension-QuickPersona",
+    "homePage": "https://github.com/karm235/Extension-QuickPersona",
     "auto_update": true
 }

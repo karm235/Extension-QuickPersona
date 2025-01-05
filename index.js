@@ -12,15 +12,14 @@ function addQuickPersonaButton() {
     <div id="quickPersona" class="interactable" tabindex="0">
         <img id="quickPersonaImg" src="/img/ai4.png" />
         <div id="quickPersonaCaret" class="fa-fw fa-solid fa-caret-up"></div>
-        <button id="toggleFavoriteMode" class="toggle-favorites-btn">☆</button>
     </div>`;
     $('#leftSendForm').append(quickPersonaButton);
-    $('#quickPersona').on('click', (e) => {
-        if (!$(e.target).is('#toggleFavoriteMode')) {
-            toggleQuickPersonaSelector();
-        }
-    });
-    $('#toggleFavoriteMode').on('click', (e) => {
+    $('#quickPersona').on('click', toggleQuickPersonaSelector);
+
+    // Add the toggle button separately to avoid overlap
+    const toggleButton = $('<button id="toggleFavoriteMode" class="toggle-favorites-btn">☆</button>');
+    $('#leftSendForm').append(toggleButton);
+    toggleButton.on('click', (e) => {
         e.stopPropagation();
         toggleFavoriteMode();
     });
